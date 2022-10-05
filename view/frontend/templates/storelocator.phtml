@@ -11,19 +11,19 @@
                 <div class="shop-list stores__list">
                     <ol class="shop-list__list hide-lg">
                         <div>
-                            <li class="shop-list__shop" class="flyTo">
+                            <li class="shop-list__shop flyTo" c>
                                 <div class="shop-list__content">
                                     <p class="shop-list__title">
                                         <span><?php echo $store->getName(); ?></span>
                                     </p>
                                     <p class="shop-list__text">
-                                        Country : <?php echo $store->getCountry(); ?>
+                                        <?php echo $store->getCountry(); ?>
                                     </p>
                                     <p class="shop-list__text">
-                                        State : <?php echo $store->getState(); ?>
+                                        <?php echo $store->getState(); ?>
                                     </p>
                                     <p class="shop-list__text">
-                                        City : <?php echo $store->getCity(); ?>
+                                        <?php echo $store->getCity(); ?>
                                     </p>
                                 </div>
                             </li>
@@ -33,6 +33,7 @@
             </div>
         </div>
     <?php endforeach; ?>
+    <!--    Google_Map-->
     <div className="stores__right">
         <div id="Google_Map">
             Map Right
@@ -48,4 +49,5 @@
        }
    }
 }
+
 </script>

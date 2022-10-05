@@ -1,32 +1,29 @@
-define(["uiComponent", 'jquery'], function (Component, $) {
+define(["uiComponent", "jquery"], function (Component, $) {
     "use strict";
     return Component.extend({
-
         initialize: function (config, node) {
-            // sb se phele ye chele gasss
-            console.log(config)
-            console.log(node)
-            this.initializeMap();
-            this.bindMapMarker();
+            // sb se phele ye chele ga
+            console.log(config);
+            console.log(node);
+            this.StoresMap();
+            this.GoogleMap();
             this.bindStoreGridFunction();
         },
-        initializeMap : function (){
+        StoresMap: function () {
+            $('.get_location').on('click' ,function (){
+                alert("Message")
+            })
 
+            $('.flyTo').on('click' ,function (){
+                alert("flyTO")
+            })
         },
-        bindMapMarker : function (){
-
+        GoogleMap: function () {
+            $('#Google_Map').click(function (){
+                alert("GoogleMap")
+            })
         },
-        bindStoreGridFunction : function (){
-            this.flyTo(2.33,4.11);
-
+        bindStoreGridFunction: function () {
         },
-        flyTo : function (lat,long){
-
-        }
     });
 });
-
-
-
-
-

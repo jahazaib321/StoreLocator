@@ -31,6 +31,6 @@ class Storelocator extends Template
     }
 
     public function getGoogleApiKey(){
-        return "sadsdasdasdsa";
+        return "AIzaSyCqHWXniQhMZc7PBV-daLmW0q8T9Kceb10";
     }
 }
