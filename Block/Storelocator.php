@@ -25,4 +25,12 @@ class Storelocator extends Template
     {
         return $this->collectionFactory->create();
     }
+
+    public function getStoresJsonData(){
+        return json_encode($this->collectionFactory->create()->getData());
+    }
+
+    public function getGoogleApiKey(){
+        return "sadsdasdasdsa";
+    }
 }
