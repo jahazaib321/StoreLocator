@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mage4_StoreLocator::storelocator"
+             title="Store Locator"
+             module="Mage4_StoreLocator"
+             resource="Mage4_StoreLocator::storelocator"
+             translate="title"
+             sortOrder="900"
+             action="storelocator"/>
+        <add id="Mage4_StoreLocator::storelocator1"
+             title="Manage Stores"
+             module="Mage4_StoreLocator"
+             parent="Mage4_StoreLocator::storelocator"
+             action="storelocator/index/index"
+             sortOrder="1"
+             resource="Mage4_StoreLocator::storelocator"/>
+    </menu>
+</config>
+

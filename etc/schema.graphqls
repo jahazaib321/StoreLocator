@@ -1,0 +1,27 @@
+type Query {
+    getMapStores : StoreLocatorOutput @resolver(class: "Mage4\\StoreLocator\\Model\\Resolver\\StoresResolver") @doc(description:"Test Module Datapassing")
+}
+
+type StoreLocatorOutput {
+    total_count : String
+    items : [StoreItem]
+}
+
+type StoreItem {
+    id : Int
+    name : String
+    country : String
+    state : String
+    city : String
+    zip : Int
+    street : String
+    lat : Float
+    lng : Float
+    description : String
+    phone : String
+    email : String
+    image : String
+}
+enum UrlRewriteEntityTypeEnum {
+    STORE_LOCATOR
+}

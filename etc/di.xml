@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Mage4\StoreLocator\Api\StoreRepositoryInterface" type="Mage4\StoreLocator\Model\StoreRepository" />
+    <preference for="Mage4\StoreLocator\Api\Data\StoreInterface" type="Mage4\StoreLocator\Model\Store" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="storelocator_form_grid_data_source" xsi:type="string">Mage4\StoreLocator\Model\ResourceModel\Store\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Mage4\StoreLocator\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">mage4/storelocator/tmp/image</argument>
+            <argument name="basePath" xsi:type="string">mage4/storelocator/image</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="ScandiPWA\UrlrewriteGraphQl\Model\Resolver\EntityUrl">
+        <plugin name="store_locator_resolver_plugin"
+                type="Mage4\StoreLocator\Plugin\Resolver\EntityUrl"
+                sortOrder="1"
+                disabled="false"
+        />
+    </type>
+</config>

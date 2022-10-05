@@ -1,0 +1,28 @@
+<?php
+/* @var Mage4\StoreLocator\Block\Storelocator $block */
+?>
+
+<div class="locator-main">
+<?php foreach ($block->getStores() as $store): ?>
+
+    <div class="store-locator">
+        <h2><?php echo $store->getName(); ?></h2>
+        <span>Country : <?php echo $store->getCountry(); ?> <br></span>
+        <span>State : <?php echo $store->getState(); ?> <br></span>
+        <span>City : <?php echo $store->getCity(); ?> <br></span>
+        <span>Zip Code : <?php echo $store->getZip(); ?> <br></span>
+            <span>Street :<?php echo $store->getStreet(); ?> <br></span>
+            <span>Latitude :<?php echo $store->getLat(); ?> <br></span>
+            <span>Longitude :<?php echo $store->getLng(); ?> <br></span>
+            <span>Phone :<?php echo $store->getPhone(); ?> <br></span>
+            <span>Email :<?php echo $store->getEmail(); ?> <br></span>
+            <span>Image :<?php echo $store->getImage(); ?> <br></span>
+            <span>Description :<?php echo $store->getDescription(); ?></span>
+    </div>
+
+
+    <hr>
+
+
+<?php endforeach; ?>
+</div>

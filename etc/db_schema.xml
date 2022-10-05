@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="mage4_storelocator_managestores" resource="default" engine="innodb" comment="Store Locator Manage Stores">
+        <column xsi:type="int" name="id" padding="7" nullable="false" identity="true" comment="Item ID" />
+        <column xsi:type="text" name="name" nullable="false" comment="Store Name"/>
+        <column xsi:type="text" name="country" nullable="false" comment="Country" />
+        <column xsi:type="text" name="state" nullable="false" comment="State" />
+        <column xsi:type="text" name="city" nullable="false" comment="City" />
+        <column xsi:type="int" name="zip" nullable="false" comment="Zipcode" />
+        <column xsi:type="text" name="street" nullable="false" comment="Street" />
+        <column xsi:type="float" name="lat" nullable="false" comment="Latitude" />
+        <column xsi:type="float" name="lng" nullable="false" comment="Longitude" />
+        <column xsi:type="text" name="description" nullable="true" comment="Description" />
+        <column xsi:type="text" name="phone" nullable="true" />
+        <column xsi:type="text" name="email" nullable="true" />
+        <column xsi:type="text" name="image" nullable="true" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+    </table>
+</schema>
+
+
