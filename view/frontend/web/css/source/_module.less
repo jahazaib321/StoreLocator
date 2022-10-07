@@ -1,0 +1,445 @@
+//@import '../../style/fonts/fonts.style';
+//@import '../../style/abstract/_var.style';
+
+
+//$font-source-sans-pro: 'Source Sans Pro', sans-serif;
+
+
+@popup-text-color: #000;
+@map-text-color: #000;
+@map-background-color: #9a9a9a;
+@get-location-color: darkred;
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    counter-reset: list;
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: black #eee; /* scroll thumb and track */
+}
+
+
+.StoreLocator {
+    max-width: 1450px;
+    position: relative;
+    margin-inline: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+
+    & .stores__title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 34px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        //font-family: $font-source-sans-pro;
+    }
+
+    & .get_location{
+        color:@get-location-color ;
+        cursor: pointer;
+    }
+
+    & .Search__Items{
+        width: 15rem;
+        margin-bottom: 20px;
+    }
+
+    .StoreLocatorMap {
+        display: flex;
+        gap: 20px;
+
+        //@include mobile {
+        //    display: flex;
+        //    flex-direction: column;
+        //    overflow: hidden;
+        //}
+
+        & .sidebar_left {
+            width: 360px;
+            max-width: 333px;
+            max-height: 432px;
+            z-index: 5;
+
+            //@include mobile {
+            //    width: 100%;
+            //}
+
+            & .sidebar_scroll {
+                width: 100%;
+                height: 432px;
+                overflow-y: scroll;
+                overflow-x: hidden;
+
+                //for chrome & safari
+                &::-webkit-scrollbar {
+                    width: 10px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+            }
+        }
+
+        .shop-list {
+            display: block;
+            padding-right: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+            height: 220px;
+        }
+
+        .stores__list {
+            margin-top: 11px;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        li:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .shop-list__shop {
+            counter-increment: list;
+            border-radius: 2px;
+            border-bottom: 1px solid transparent;
+            position: relative;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            cursor: pointer;
+            display: flex;
+            padding: 1rem !important;
+            background-color: #fbfbfb;
+
+            &::before {
+                content: "0" counter(list) ".";
+                //font-family: $font-source-sans-pro;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 15px;
+                line-height: 18px;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: #000;
+                width: 44px;
+                flex-shrink: 0;
+                position: relative;
+                padding-right: 0;
+            }
+        }
+
+        shop-list__title {
+            font-size: 15px;
+            line-height: 19px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            //font-family: $font-source-sans-pro;
+            color: @map-text-color;
+        }
+
+        .shop-list__text {
+            margin-top: 2px;
+            font-size: 12px;
+            line-height: 0;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            //font-feature-settings: 'pnum' on, 'lnum' on;
+            color: @map-background-color;
+            word-wrap: break-word;
+        }
+
+        //map style
+        .stores__right {
+            flex-grow: 1;
+            position: relative;
+            height: 432px;
+            overflow: hidden;
+
+            div {
+                position: static;
+            }
+
+            //@include mobile {
+            //    margin-top: 0px !important;
+            //    margin-bottom: 10px;
+            //}
+
+            & #Google_Map{
+                width: 100%;
+                height: 100%;
+            }
+
+            .store-tooltip.stores__tooltip.is-active {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+                background-color: black;
+                color: white;
+                position: absolute;
+                left: -220px;
+                top: 0;
+                bottom: 0;
+                z-index: 1;
+                transition: left 0.5s ease;
+                //@include mobile {
+                //    width: 150px;
+                //}
+            }
+
+            .stores__tooltip {
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 220px;
+                z-index: 10;
+            }
+
+            .store-tooltip {
+                display: none;
+                color: @popup-text-color;
+                box-sizing: border-box;
+                border-radius: 2px;
+
+                &::after {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 9px 10px 9px 0;
+                    border-color: transparent #000 transparent transparent;
+                    position: absolute;
+                    right: 100%;
+                    bottom: 184px;
+                }
+            }
+
+            store-tooltip__content {
+                margin-top: 20px;
+
+                .store__image {
+                    height: 150px;
+                }
+
+                .store-tooltip__title {
+                    font-weight: bold;
+                    font-size: 20px;
+                    line-height: 25px;
+                    letter-spacing: 0.03em;
+                    text-transform: uppercase;
+                    font-feature-settings: "pnum" on, "lnum" on;
+                    color: @popup-text-color;
+                    margin-bottom: 10px;
+                    margin-top: 5px;
+                    text-align: center;
+                }
+
+                .store-tooltip__details {
+                    margin-top: 15px;
+                }
+
+                .store-tooltip__address {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    padding-inline: 40px;
+                    margin-bottom: 10px;
+
+                    div > p {
+                        word-wrap: break-word;
+                        margin-bottom: 0;
+                    }
+
+                    > div:first-child {
+                        width: 25%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                    }
+
+                    > div:last-child {
+                        width: 75%;
+                    }
+                }
+
+                //dropdown work
+                select {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    -ms-appearance: none;
+                    appearance: none;
+                    outline: 0;
+                    background: @map-background-color;
+                    background-image: url("https://png.pngtree.com/png-clipart/20191120/original/pngtree-outline-image-icon-isolated-png-image_5045508.jpg") center center;
+                }
+
+                .select {
+                    position: relative;
+                    display: block;
+                    line-height: 3;
+                    background: #eeeeee;
+                    overflow: hidden;
+                    border-radius: .25em;
+                    width: 13rem;
+                    height: 4rem;
+                    margin-left: 8rem;
+
+                    select {
+                        width: 100%;
+                        height: 100%;
+                        margin: 0;
+                        padding: 0 0 0 .5em;
+                        color: #fff;
+                        cursor: pointer;
+                    }
+
+                    select::-ms-expand {
+                        display: none;
+                    }
+
+                    &::after {
+                        content: '\25BC';
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        padding: 0 1em;
+                        background: #eee;
+                        pointer-events: none;
+                    }
+
+                    &:hover::after {
+                        color: #F39C12;
+                    }
+
+                    //<!-- For different browsers -->
+                    &::after {
+                        -webkit-transition: .25s all ease;
+                        -o-transition: .25s all ease;
+                        transition: .25s all ease;
+                    }
+                }
+
+                .store-tooltip__text {
+                    font-size: 12px;
+                    color: @popup-text-color;
+                }
+
+                .store-tooltip__phone {
+                    margin-top: 20px;
+                    font-size: 12px;
+                    line-height: 15px;
+                    text-transform: uppercase;
+                    font-feature-settings: "pnum" on, "lnum" on;
+                    color: @popup-text-color;
+
+                    .store-tooltip__buttons {
+                        display: flex;
+                        justify-content: space-evenly;
+                    }
+
+                    .store-tooltip__button__div {
+                        cursor: pointer;
+                        color: rgb(26, 115, 232);
+                        padding: 10px;
+                        border: 1px solid rgb(26, 115, 232);
+                        border-radius: 25px;
+
+                        &:hover {
+                            background-color: lightblue;
+                        }
+                    }
+
+                    .store-tooltip__button__img {
+                        height: 18px !important;
+                        width: 18px !important;
+                    }
+
+                    .store-tooltip__button__text {
+                        display: block;
+                        margin-top: 10px;
+                        text-transform: lowercase !important;
+                        font-size: 12px;
+                        //font-family: $font-source-sans-pro;
+                        color: rgb(26, 115, 232);
+                        text-align: center;
+                    }
+
+                    a,
+                    input,
+                    button,
+                    select,
+                    textarea {
+                        //transition: color 0.2s ease, border-color 0.2s ease;
+
+                        & a {
+                            text-decoration: none;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .store-tooltip__close {
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    width: 14px;
+                    height: 14px;
+                    fill: white;
+                    cursor: pointer;
+                    transition: transform 0.5s;
+
+                    & img {
+                        //box-sizing: content-box;
+                    }
+                }
+            }
+
+            //google-maps-react styling
+            .gmnoprint {
+                top: auto !important;
+            }
+
+            .gm-style-iw-d {
+                max-height: 100% !important;
+            }
+
+            .gm-style-iw {
+                max-width: 300px !important;
+                height: 432px !important;
+                max-height: 400px !important;
+                width: 100%;
+            }
+
+            .gm-style .gm-style-iw-tc {
+                padding: 12px;
+
+                &::after {
+                    display: none;
+                }
+
+            }
+
+            .gm-style .gm-style-iw-d {
+                overflow-y: scroll !important;
+            }
+
+
+            .gm-style-iw {
+                max-height: 432px;
+            }
+
+            //google-maps-react styling End
+        }
+    }
+
+    //main
+}

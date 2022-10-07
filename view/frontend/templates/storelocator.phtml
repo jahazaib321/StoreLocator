@@ -2,52 +2,72 @@
 /* @var Mage4\StoreLocator\Block\Storelocator $block */
 ?>
 
-<div id='StoreLocatorMap' class="StoreLocator">
-    <h1>StoreLocatore</h1>
-    <p class="get_location" style="color:red"> Get Location </p>
-    <?php foreach ($block->getStores() as $store): ?>
+<div id="StoresMaps" class="StoreLocator">
+    <h1 class="stores__title">StoreLocatore</h1>
+    <p class="get_location"> Get Location </p>
+    <div class="Search__Items">
+        <form>
+            <input
+                autoComplete="off"
+                type="text"
+                placeholder="search ...">
+        </form>
+    </div>
+
+    <div id="StoreLocatorMap" class="StoreLocatorMap">
         <div class="sidebar_left">
             <div class="sidebar_scroll">
                 <div class="shop-list stores__list">
                     <ol class="shop-list__list hide-lg">
-                        <div>
-                            <li class="shop-list__shop flyTo" c>
-                                <div class="shop-list__content">
-                                    <p class="shop-list__title">
-                                        <span><?php echo $store->getName(); ?></span>
-                                    </p>
-                                    <p class="shop-list__text">
-                                        <?php echo $store->getCountry(); ?>
-                                    </p>
-                                    <p class="shop-list__text">
-                                        <?php echo $store->getState(); ?>
-                                    </p>
-                                    <p class="shop-list__text">
-                                        <?php echo $store->getCity(); ?>
-                                    </p>
-                                </div>
-                            </li>
-                        </div>
+                        <?php foreach ($block->getStores() as $store): ?>
+                            <div>
+                                <li class="shop-list__shop flyTo" c>
+                                    <div class="shop-list__content">
+                                        <p class="shop-list__title">
+                                            <span><?php echo $store->getName(); ?></span>
+                                        </p>
+                                        <p class="shop-list__text">
+                                            <?php echo $store->getCountry(); ?>
+                                        </p>
+                                        <br>
+                                        <p class="shop-list__text">
+                                            <?php echo $store->getState(); ?>
+                                        </p>
+                                        <br>
+                                        <p class="shop-list__text">
+                                            <?php echo $store->getCity(); ?>
+                                        </p>
+                                    </div>
+                                </li>
+                            </div>
+                        <?php endforeach; ?>
+
                     </ol>
                 </div>
             </div>
         </div>
-    <?php endforeach; ?>
-    <!--    Google_Map-->
-    <div className="stores__right">
-        <div id="Google_Map">
-            Map Right
+
+        <!--    Google_Map-->
+        <div class="stores__right">
+            <div id="Google_Map">
+             <h1>Google Map</h1>
+            </div>
         </div>
+        <!--    storeMapEnd-->
+
     </div>
+    <!--main-->
 </div>
 <script type="text/x-magento-init">
 {
-   "#StoreLocatorMap": {
+   "#StoresMaps": {
        "Mage4_StoreLocator/js/storelocator": {
             "stores" : <?= $block->getStoresJsonData() ?>,
             "google_api_key" : "<?= $block->getGoogleApiKey() ?>"
        }
    }
 }
+
+
 
 </script>
