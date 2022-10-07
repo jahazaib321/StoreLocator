@@ -8,6 +8,7 @@
     <div class="Search__Items">
         <form>
             <input
+                id="myInput"
                 autoComplete="off"
                 type="text"
                 placeholder="search ...">
@@ -20,8 +21,8 @@
                 <div class="shop-list stores__list">
                     <ol class="shop-list__list hide-lg">
                         <?php foreach ($block->getStores() as $store): ?>
-                            <div>
-                                <li class="shop-list__shop flyTo" c>
+                            <div id="myDiv">
+                                <li class="shop-list__shop flyTo">
                                     <div class="shop-list__content">
                                         <p class="shop-list__title">
                                             <span><?php echo $store->getName(); ?></span>
@@ -50,7 +51,6 @@
         <!--    Google_Map-->
         <div class="stores__right">
             <div id="Google_Map">
-             <h1>Google Map</h1>
             </div>
         </div>
         <!--    storeMapEnd-->
@@ -67,6 +67,7 @@
        }
    }
 }
+
 
 
 
