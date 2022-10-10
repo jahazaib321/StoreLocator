@@ -8,7 +8,7 @@ class Store extends \Magento\Framework\Model\AbstractModel implements
     \Mage4\StoreLocator\Api\Data\StoreInterface,
     \Magento\Framework\DataObject\IdentityInterface
 {
-    const CACHE_TAG = 'jahazaib_test_store';
+    const CACHE_TAG = 'store_locator';
 
     /**
      * Init

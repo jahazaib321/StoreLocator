@@ -6,7 +6,6 @@ use Mage4\StoreLocator\Api\Data\StoreInterface;
 use Mage4\StoreLocator\Model\StoreFactory;
 use Mage4\StoreLocator\Model\ResourceModel\Store as ObjectResourceModel;
 use Mage4\StoreLocator\Model\ResourceModel\Store\CollectionFactory;
-
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchResultsInterfaceFactory;
 use Magento\Framework\Exception\CouldNotDeleteException;

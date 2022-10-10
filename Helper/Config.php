@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright © 2018 Ideo. All rights reserved.
- * @license GPLv3
- */
 
 namespace Mage4\StoreLocator\Helper;
 
@@ -25,7 +21,7 @@ class Config extends AbstractHelper
      */
     public function getGoogleApiKeyBackend()
     {
-        return $this->scopeConfig->getValue('storelocator/google_api_key/backend', ScopeConfigInterface::SCOPE_TYPE_DEFAULT);
+        return $this->scopeConfig->getValue('storelocator/google_api_key/backend');
     }
 
     /**
@@ -35,5 +31,22 @@ class Config extends AbstractHelper
     {
         return $this->scopeConfig->getValue('storelocator/configuration/group_by', ScopeInterface::SCOPE_STORE);
     }
+    public function getDefaultZoom()
+    {
+        return $this->scopeConfig->getValue('storelocator/style/zoom', ScopeConfigInterface::SCOPE_TYPE_DEFAULT);
+    }
+    public function getGoogleMapJson()
+    {
+        return $this->scopeConfig->getValue('storelocator/style/json', ScopeConfigInterface::SCOPE_TYPE_DEFAULT);
+    }
+    public function getMarkerIcon()
+    {
+        return $this->scopeConfig->getValue('storelocator/style/markericon', ScopeConfigInterface::SCOPE_TYPE_DEFAULT);
+    }
+    public function getSelectedMarkerIcon()
+    {
+        return $this->scopeConfig->getValue('storelocator/style/selected_markericon', ScopeConfigInterface::SCOPE_TYPE_DEFAULT);
+    }
+
 }
 

@@ -2,8 +2,13 @@
 /* @var Mage4\StoreLocator\Block\Storelocator $block */
 ?>
 
+<div>
+    <?php echo $block->getSelectedMarkerIcon(); ?>
+    <?php echo $block->getMarkerIcon(); ?>
+</div>
+
 <div id="StoresMaps" class="StoreLocator">
-    <h1 class="stores__title">StoreLocatore</h1>
+    <h1 class="stores__title">StoreLocator</h1>
     <p class="get_location"> Get Location </p>
     <div class="Search__Items">
         <form>
