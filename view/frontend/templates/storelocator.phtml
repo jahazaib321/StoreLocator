@@ -4,7 +4,7 @@
 
 <div id="StoresMaps" class="StoreLocator">
     <h1 class="stores__title">StoreLocatore</h1>
-    <p class="get_location"> Get Location </p>
+    <p class="get_location" id="get_location"> Get Location </p>
     <div class="Search__Items">
         <form>
             <input
@@ -22,7 +22,7 @@
                     <ol class="shop-list__list hide-lg">
                         <?php foreach ($block->getStores() as $store): ?>
                             <div id="myDiv">
-                                <li class="shop-list__shop flyTo">
+                                <li class="shop-list__shop" id="flyTo">
                                     <div class="shop-list__content">
                                         <p class="shop-list__title">
                                             <span><?php echo $store->getName(); ?></span>
@@ -30,11 +30,9 @@
                                         <p class="shop-list__text">
                                             <?php echo $store->getCountry(); ?>
                                         </p>
-                                        <br>
                                         <p class="shop-list__text">
                                             <?php echo $store->getState(); ?>
                                         </p>
-                                        <br>
                                         <p class="shop-list__text">
                                             <?php echo $store->getCity(); ?>
                                         </p>
