@@ -7,7 +7,7 @@ define(["uiComponent", "jquery"], function (Component, $) {
             console.log("config", config);
             console.log("stores", Stores);
             this.renderGetCurrentLocation();
-            this.flyToLocation(Stores);
+            this.flyToLocation();
             this.renderGoogleMap(Stores);
             this.SearchInputField();
         },
@@ -20,25 +20,24 @@ define(["uiComponent", "jquery"], function (Component, $) {
                         if (window.map) {
                             window.map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
                         }
-
                     });
                 }
             })
         },
 
-        flyToLocation: function (store) {
-            $('#flyTo').on('click', function () {
-                console.log(store, 'testing...');
-                 setTimeout(() => {
+        flyToLocation: function () {
+            $('.flyTo').on('click', function () {
+                let lat = $(this).data('lat');
+                let long = $(this).data('long');
+                console.log(lat, ' -- ', long);
+                setTimeout(() => {
                  let map = new google.maps.Map(document.getElementById("Google_Map"));
-                    map.panTo(new google.maps.LatLng(store.lat, store.lng));
+                    map.panTo(new google.maps.LatLng(lat, long));
                     map.setZoom(12);
                 }, 1000);
             })
         },
         renderGoogleMap: function (Stores) {
-            console.log("Data Stores", Stores);
-
             let MapContent = document.getElementById("Google_Map")
             let map = new google.maps.Map(MapContent, {
                 center: {lat: 59.9695413, lng: 30.382844},
