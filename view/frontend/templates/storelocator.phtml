@@ -2,13 +2,8 @@
 /* @var Mage4\StoreLocator\Block\Storelocator $block */
 ?>
 
-<!--<div>
-    <?php /*echo $block->getSelectedMarkerIcon(); */?>
-    <?php /*echo $block->getMarkerIcon(); */?>
-</div>-->
-
 <div id="StoresMaps" class="StoreLocator">
-    <h1 class="stores__title">StoreLocatore</h1>
+    <h1 class="stores__title">StoreLocator</h1>
     <p class="get_location"> Get Location </p>
     <div class="Search__Items">
         <form>
@@ -26,7 +21,9 @@
                 <div class="shop-list stores__list">
                     <ol class="shop-list__list hide-lg">
                         <?php foreach ($block->getStores() as $store): ?>
-                                <li class="shop-list__shop flyTo"  data-lat='<?= $store->getLat() ?>' data-long='<?= $store->getLng()?>'>
+                            <div id="myDiv">
+                                <li class="shop-list__shop flyTo" data-lat='<?= $store->getLat() ?>'
+                                    data-long='<?= $store->getLng() ?>'>
                                     <div class="shop-list__content">
                                         <p class="shop-list__title">
                                             <span>
@@ -44,6 +41,7 @@
                                         </p>
                                     </div>
                                 </li>
+                            </div>
                         <?php endforeach; ?>
                     </ol>
                 </div>
@@ -52,7 +50,7 @@
 
         <!--    Google_Map-->
         <div class="stores__right">
-            <div id="Google_Map">
+            <div id="Google_Map" class="GoogleMap">
             </div>
         </div>
         <!--    storeMapEnd-->
@@ -65,13 +63,12 @@
    "#StoresMaps": {
        "Mage4_StoreLocator/js/storelocator": {
             "stores" : <?= $block->getStoresJsonData() ?>,
-            "google_api_key" : "<?= $block->getGoogleApiKey() ?>"
+            "google_api_key" : "<?= $block->getGoogleApiKey() ?>",
+            "selected_marker_icon" : "<?= $block->getSelectedMarkerIcon() ?>",
+            "marker_icon" : "<?= $block->getMarkerIcon() ?>",
+            "Default_Zoom" : <?= $block->renderConfig()->getDefaultZoom() ?>,
+            "Map_Style" : <?= $block->renderConfig()->getGoogleMapJson() ?>
        }
    }
 }
-
-
-
-
-
 </script>
