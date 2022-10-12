@@ -3,6 +3,7 @@
 ?>
 
 <div id="StoresMaps" class="StoreLocator">
+<<<<<<< HEAD
 
     <h1 class="stores__title">StoreLocatore</h1>
     <p class="get_location" id="get_location"> Get Location </p>
@@ -10,6 +11,10 @@
     <h1 class="stores__title">StoreLocator</h1>
     <p class="get_location"> Get Location </p>
 
+=======
+    <h1 class="stores__title">StoreLocator</h1>
+    <p class="get_location"> Get Location </p>
+>>>>>>> fab65c2b9aa286b6df3ad6faa4d0aa4721593a28
     <div class="Search__Items">
         <form>
             <input
@@ -27,10 +32,13 @@
                     <ol class="shop-list__list hide-lg">
                         <?php foreach ($block->getStores() as $store): ?>
                             <div id="myDiv">
-                                <li class="shop-list__shop" id="flyTo">
+                                <li class="shop-list__shop flyTo" data-lat='<?= $store->getLat() ?>'
+                                    data-long='<?= $store->getLng() ?>'>
                                     <div class="shop-list__content">
                                         <p class="shop-list__title">
-                                            <span><?php echo $store->getName(); ?></span>
+                                            <span>
+                                                <?php echo $store->getName(); ?>
+                                            </span>
                                         </p>
                                         <p class="shop-list__text">
                                             <?php echo $store->getCountry(); ?>
@@ -45,7 +53,6 @@
                                 </li>
                             </div>
                         <?php endforeach; ?>
-
                     </ol>
                 </div>
             </div>
@@ -53,7 +60,7 @@
 
         <!--    Google_Map-->
         <div class="stores__right">
-            <div id="Google_Map">
+            <div id="Google_Map" class="GoogleMap">
             </div>
         </div>
         <!--    storeMapEnd-->
@@ -66,12 +73,12 @@
    "#StoresMaps": {
        "Mage4_StoreLocator/js/storelocator": {
             "stores" : <?= $block->getStoresJsonData() ?>,
-            "google_api_key" : "<?= $block->getGoogleApiKey() ?>"
+            "google_api_key" : "<?= $block->getGoogleApiKey() ?>",
+            "selected_marker_icon" : "<?= $block->getSelectedMarkerIcon() ?>",
+            "marker_icon" : "<?= $block->getMarkerIcon() ?>",
+            "Default_Zoom" : <?= $block->renderConfig()->getDefaultZoom() ?>,
+            "Map_Style" : <?= $block->renderConfig()->getGoogleMapJson() ?>
        }
    }
 }
-
-
-
-
 </script>
