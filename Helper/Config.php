@@ -48,5 +48,13 @@ class Config extends AbstractHelper
         return $this->scopeConfig->getValue('storelocator/style/selected_markericon', ScopeConfigInterface::SCOPE_TYPE_DEFAULT);
     }
 
+    public function getStoreMediaPathUrl()
+    {
+        // get media Base Url
+        $media = $this->storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+        $media = $media . 'mage4/storelocator/image/' ;
+        return $media;
+    }
+
 }
 

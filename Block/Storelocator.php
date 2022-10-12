@@ -73,4 +73,13 @@ class Storelocator extends Template
         $media = $media . 'mage4/storelocator/markericon/' . $this->config->getMarkerIcon();
         return $media;
     }
+
+    public function getStoreMediaPathUrl()
+    {
+        // get media Base Url
+        $media = $this->storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+        $media = $media . 'mage4/storelocator/image/';
+        return $media;
+    }
+
 }
