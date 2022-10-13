@@ -74,11 +74,11 @@ class Storelocator extends Template
         return $media;
     }
 
-    public function getStoreMediaPathUrl()
+    public function getStoreMediaPathUrl($name)
     {
         // get media Base Url
         $media = $this->storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
-        $media = $media . 'mage4/storelocator/image/';
+        $media = $media . 'mage4/storelocator/image/' .$name;
         return $media;
     }
 
