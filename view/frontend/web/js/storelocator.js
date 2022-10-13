@@ -8,9 +8,10 @@ define(["uiComponent", "jquery"], function (Component, $) {
             const SelectedMarkerIcon = config.selected_marker_icon;
             const Default_Zoom = config.Default_Zoom;
             const Map_Style = config.Map_Style;
+            const Image_Url = config.Image_Url;
             console.log("config", config);
             this.renderGetCurrentLocation();
-            this.renderGoogleMap(Stores, MarkerIcon, SelectedMarkerIcon, Default_Zoom, Map_Style);
+            this.renderGoogleMap(Stores, MarkerIcon, SelectedMarkerIcon, Default_Zoom, Map_Style , Image_Url);
             this.SearchInputField();
             this.flyToLocation();
         },
@@ -45,7 +46,7 @@ define(["uiComponent", "jquery"], function (Component, $) {
                 map.setZoom(12);
             })
         },
-        renderGoogleMap: function (Stores, MarkerIcon, SelectedMarkerIcon, Default_Zoom, Map_Style) {
+        renderGoogleMap: function (Stores, MarkerIcon, SelectedMarkerIcon, Default_Zoom, Map_Style , Image_Url) {
             let MapId = document.getElementById("Google_Map")
             let center = {lat: 38.000275, lng: 23.733576}
             this.map = new google.maps.Map(MapId, {
@@ -61,30 +62,27 @@ define(["uiComponent", "jquery"], function (Component, $) {
                 let storeLatLong = {lat: parseFloat(store.lat), lng: parseFloat(store.lng)};
                 let marker = new google.maps.Marker({
                     position: storeLatLong, map: this.map,
-                    icon: MarkerIcon ? MarkerIcon : SelectedMarkerIcon
+                    icon: SelectedMarkerIcon ? SelectedMarkerIcon : MarkerIcon,
+                    style: {width: "40px"}
                 });
                 marker.addListener('click', () => {
                     let infoWindow = new google.maps.InfoWindow({
                         content: `
                          <div class="store-tooltip__content">
-                         <div>${store.image}</div>
+                         <img alt="store_image" src="${Image_Url}${store.image}" style="width: 100%; height: 100%;">
                          <div class="store-tooltip__title">
                          <h2>${store.name}</h2>
                          </div>
-                         <div class="store-tooltip__buttons">
                            <a href="http://maps.google.com/maps?z=12&t=m&q=loc:${store.lat}+${store.lng}" target="_blank">
                            <button class="store-tooltip__button__div">
-                            <span>direction</span>
+                            <span>Google_maps</span>
                             </button>
                              </a>
-                              </div>
                                </div>`
                     });
                     infoWindow.open(this.map, marker);
                 })
             });
-
-
             window.map = this.renderGoogleMap;
         },
 
