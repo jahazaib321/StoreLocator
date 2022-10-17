@@ -46,6 +46,7 @@ define(["uiComponent", "jquery"], function (Component, $) {
         let center = new google.maps.LatLng(lat, long);
         map.setCenter(center);
         map.setZoom(12);
+        window.scrollTo(0, 500);
       });
     },
     renderGoogleMap: function (

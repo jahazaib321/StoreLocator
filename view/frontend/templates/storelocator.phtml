@@ -4,63 +4,59 @@
 
 
 <div id="StoresMaps" class="StoreLocator">
-    <h1 class="stores__title">StoreLocator</h1>
-    <p class="get_location"> Get Location </p>
-    <div class="Search__Items">
-        <form>
-            <input
-                id="myInput"
-                autoComplete="off"
-                type="text"
-                placeholder="search ...">
-        </form>
-    </div>
+   <h1 class="stores__title">StoreLocator</h1>
+   <p class="get_location"> Get Location </p>
+   <div class="Search__Items">
+      <form>
+         <input id="myInput" autoComplete="off" type="text" placeholder="search ...">
+      </form>
+   </div>
 
-    <div id="StoreLocatorMap" class="StoreLocatorMap">
-        <div class="sidebar_left">
-            <div class="sidebar_scroll">
-                <div class="shop-list stores__list">
-                    <ol class="shop-list__list hide-lg">
-                        <?php foreach ($block->getStores() as $store): ?>
-                            <div id="myDiv">
-                                <li class="shop-list__shop flyTo" data-lat='<?= $store->getLat() ?>'
-                                    data-long='<?= $store->getLng() ?>'>
-                                    <div class="shop-list__content">
-                                        <p class="shop-list__title">
-                                            <span>
-                                                <?php echo $store->getName(); ?>
-                                            </span>
-                                        </p>
-                                        <p class="shop-list__text">
-                                            <?php echo $store->getCountry(); ?>
-                                        </p>
-                                        <p class="shop-list__text">
-                                            <?php echo $store->getState(); ?>
-                                        </p>
-                                        <p class="shop-list__text">
-                                            <?php echo $store->getCity(); ?>
-                                        </p>
-                                    </div>
-                                </li>
-                            </div>
-                        <?php endforeach; ?>
-                    </ol>
-                </div>
+   <div id="StoreLocatorMap" class="StoreLocatorMap">
+      <div class="sidebar_left">
+         <div class="sidebar_scroll">
+            <div class="shop-list stores__list">
+               <ol class="shop-list__list hide-lg">
+                  <?php foreach ($block->getStores() as $store): ?>
+                  <div id="myDiv">
+                     <li class="shop-list__shop flyTo" data-lat='<?= $store->getLat() ?>'
+                        data-long='<?= $store->getLng() ?>'>
+                        <div class="shop-list__content">
+                           <p class="shop-list__title">
+                              <span>
+                                 <?php echo $store->getName(); ?>
+                              </span>
+                           </p>
+                           <p class="shop-list__text">
+                              <?php echo $store->getCountry(); ?>
+                           </p>
+                           <p class="shop-list__text">
+                              <?php echo $store->getState(); ?>
+                           </p>
+                           <p class="shop-list__text">
+                              <?php echo $store->getCity(); ?>
+                           </p>
+                        </div>
+                     </li>
+                  </div>
+                  <?php endforeach; ?>
+               </ol>
             </div>
-        </div>
+         </div>
+      </div>
 
-        <!--    Google_Map-->
-        <div class="stores__right">
-            <div id="Google_Map" class="GoogleMap">
-            </div>
-        </div>
-        <!--    storeMapEnd-->
+      <!--    Google_Map-->
+      <div class="stores__right">
+         <div id="Google_Map" class="GoogleMap">
+         </div>
+      </div>
+      <!--    storeMapEnd-->
 
-    </div>
-    <!--main-->
+   </div>
+   <!--main-->
 </div>
 <script type="text/x-magento-init">
-{
+   {
    "#StoresMaps": {
        "Mage4_StoreLocator/js/storelocator": {
             "stores" : <?= $block->getStoresJsonData() ?>,
