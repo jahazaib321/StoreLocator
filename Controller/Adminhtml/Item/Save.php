@@ -34,10 +34,10 @@ class Save extends Action
     public function execute()
     {
         $data = $this->getRequest()->getPost('general');
+//        dd($data);
         $model = $this->storeFactory->create();
         $id = $this->getRequest()->getParam('id');
         $model->load($id);
-
         if ($data) {
             if (isset($data['image'][0]['name']) && isset($data['image'][0]['tmp_name'])) {
                 $data['image'] = $data['image'][0]['name'];

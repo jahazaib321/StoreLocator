@@ -1,6 +1,6 @@
 <?php
 
-namespace Mage4\StoreLocator\Ui\Component\Listing\Column;
+namespace Mage4\ImageComparisonSlider\Ui\Component\Listing\Column;
 
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
@@ -9,8 +9,8 @@ use Magento\Framework\UrlInterface;
 
 class DataActions extends Column
 {
-    const URL_PATH_EDIT = 'storelocator/data/edit';
-    const URL_PATH_DELETE = 'storelocator/data/delete';
+    const URL_PATH_EDIT = 'comparisonslider/data/edit';
+    const URL_PATH_DELETE = 'comparisonslider/data/delete';
 
     /**
      * URL builder
