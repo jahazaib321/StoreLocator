@@ -1,16 +1,22 @@
 define(["uiComponent", "jquery"], function (Component, $) {
     "use strict";
     return Component.extend({
-        map: null, initialize: function (config, node) {
-            console.log(config);
+        map: null,
+        initialize: function (config, node) {
             const Stores = config.stores;
-            const Google_Api_Key = config.google_api_key;
             const MarkerIcon = config.marker_icon;
             const SelectedMarkerIcon = config.selected_marker_icon;
             const Default_Zoom = config.Default_Zoom;
             const Map_Style = config.Map_Style;
             const Image_Url = config.Image_Url;
-            this.renderGoogleMap(Stores,  MarkerIcon, SelectedMarkerIcon, Default_Zoom, Map_Style, Image_Url , Google_Api_Key);
+            this.renderGoogleMap(
+                Stores,
+                MarkerIcon,
+                SelectedMarkerIcon,
+                Default_Zoom,
+                Map_Style,
+                Image_Url
+            );
             this.renderGetCurrentLocation();
             this.SearchInputField();
             this.flyToLocation();
@@ -40,30 +46,44 @@ define(["uiComponent", "jquery"], function (Component, $) {
                 let center = new google.maps.LatLng(lat, long);
                 map.setCenter(center);
                 map.setZoom(12);
-                window.scrollTo(0, 500);
+                if ($(window).width() < 786) {
+                    window.scrollTo(0, 500);
+                }
             });
-        }, renderGoogleMap: function (Stores, MarkerIcon, SelectedMarkerIcon, Default_Zoom, Map_Style, Image_Url  ,Google_Api_Key) {
+        },
+        renderGoogleMap: function (
+            Stores,
+            MarkerIcon,
+            SelectedMarkerIcon,
+            Default_Zoom,
+            Map_Style,
+            Image_Url,
+
+        ) {
             let MapId = document.getElementById("Google_Map");
-            let center = {lat: 38.000275, lng: 23.733576};
+            let markerIcon = MarkerIcon
+                ? MarkerIcon
+                : "https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png";
+            let center = { lat: 38.000275, lng: 23.733576 };
             this.map = new google.maps.Map(MapId, {
                 center: center,
                 zoom: Default_Zoom,
-                greatPlaceCoords: {lat: 59.9695413, lng: 30.382844},
+                greatPlaceCoords: { lat: 59.9695413, lng: 30.382844 },
                 clickable: true,
                 styles: Map_Style,
                 scrollwheel: true,
                 panControl: true,
-                key: Google_Api_Key ? Google_Api_Key : "AIzaSyCqHWXniQhMZc7PBV-daLmW0q8T9Kceb10",
             });
             Stores.map((store) => {
                 let storeLatLong = {
-                    lat: parseFloat(store.lat), lng: parseFloat(store.lng),
+                    lat: parseFloat(store.lat),
+                    lng: parseFloat(store.lng),
                 };
                 let marker = new google.maps.Marker({
                     position: storeLatLong,
                     map: this.map,
-                    icon: SelectedMarkerIcon ? SelectedMarkerIcon : MarkerIcon,
-                    style: {width: "40px"},
+                    icon: markerIcon,
+                    style: { width: "40px" },
                 });
                 marker.addListener("click", () => {
                     let infoWindow = new google.maps.InfoWindow({
