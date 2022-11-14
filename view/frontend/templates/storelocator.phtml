@@ -2,8 +2,11 @@
 /* @var Mage4\StoreLocator\Block\Storelocator $block */
 ?>
 
+
+
 <div id="StoresMaps" class="StoreLocator">
    <h1 class="stores__title">StoreLocator</h1>
+    <?= $block->getGoogleFrontendApiKey(); ?>
    <p class="get_location"> Get Location </p>
    <div class="Search__Items">
       <form>
@@ -59,7 +62,7 @@
    "#StoresMaps": {
        "Mage4_StoreLocator/js/storelocator": {
             "stores" : <?= $block->getStoresJsonData() ?>,
-            "google_api_key" : "<?= $block->getGoogleApiKey() ?>",
+            "google_api_key" : "<?= $block->getGoogleFrontendApiKey() ?>",
             "selected_marker_icon" : "<?= $block->getSelectedMarkerIcon() ?>",
             "marker_icon" : "<?= $block->getMarkerIcon() ?>",
             "Default_Zoom" : <?= $block->renderConfig()->getDefaultZoom() ?>,
