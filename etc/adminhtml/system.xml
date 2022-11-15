@@ -9,6 +9,16 @@
             <label>Store Locator</label>
             <tab>mage4</tab>
             <resource>Mage4_StoreLocator::configuration</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="add_to_toolbar_menu" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add Store Locator Link to the Toolbar</label>
+                    <tooltip>Link to the Store Locator page will be added to the toolbar</tooltip>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
             <group id="google_api_key" translate="label" type="text" sortOrder="10" showInDefault="1">
                 <label>Google Api Key</label>
                 <field id="frontend" translate="label" sortOrder="10" type="text" showInDefault="1">
@@ -20,6 +30,7 @@
 
                 </field>
             </group>
+
             <group id="seo" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                 <label>Search Engine Optimization</label>
                 <field id="meta_title" translate="label" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
@@ -32,6 +43,7 @@
                     <label>Meta Keywords</label>
                 </field>
             </group>
+
             <group id="style" translate="label" type="text" sortOrder="10" showInDefault="1">
                 <label>Map Styling</label>
                 <field id="zoom" translate="label" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
@@ -53,6 +65,7 @@
                     <base_url type="media" scope_info="1">mage4/storelocator/selected_markericon</base_url>
                 </field>
             </group>
+
         </section>
     </system>
 </config>
