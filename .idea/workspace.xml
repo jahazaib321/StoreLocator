@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5b1443cd-26e5-461e-95f5-cbf736f7fb09" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Block/Storelocator.php" beforeDir="false" afterPath="$PROJECT_DIR$/Block/Storelocator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/adminhtml/system.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/adminhtml/system.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/frontend/templates/storelocator.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/templates/storelocator.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/frontend/web/js/storelocator.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/web/js/storelocator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +42,8 @@
       <updated>1667907518991</updated>
       <workItem from="1667907520383" duration="756000" />
       <workItem from="1668423293613" duration="5633000" />
-      <workItem from="1668433377928" duration="9406000" />
+      <workItem from="1668433377928" duration="10006000" />
+      <workItem from="1668510173856" duration="2287000" />
     </task>
     <servers />
   </component>
