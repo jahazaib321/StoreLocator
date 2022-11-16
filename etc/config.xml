@@ -3,7 +3,7 @@
     <default>
         <storelocator>
             <general>
-                <enable_link>1</enable_link>
+                <enabled>0</enabled>
             </general>
             <style>
                 <json>""</json>

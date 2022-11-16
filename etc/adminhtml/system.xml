@@ -10,8 +10,13 @@
             <tab>mage4</tab>
             <resource>Mage4_StoreLocator::configuration</resource>
 
+
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
                 <field id="add_to_toolbar_menu" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Add Store Locator Link to the Toolbar</label>
                     <tooltip>Link to the Store Locator page will be added to the toolbar</tooltip>
