@@ -1,27 +1,26 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Mage4_StoreLocator::storelocator_configuration"
-             title="Configuration"
-             resource="Magento_Backend::content"
+        <add id="Mage4_StoreLocator::root"
+             title="Mage4"
              module="Mage4_StoreLocator"
-             sortOrder="1"
-             action="adminhtml/system_config/edit/section/storelocator"
-             parent="Mage4_StoreLocator::storelocator" />
-        <add id="Mage4_StoreLocator::storelocator"
-             title="Store Locator"
-             module="Mage4_StoreLocator"
-             resource="Mage4_StoreLocator::storelocator"
+             resource="Mage4_StoreLocator::root"
              translate="title"
              sortOrder="900"
              action="storelocator"/>
         <add id="Mage4_StoreLocator::storelocator1"
-             title="Manage Stores"
+             title="Store Locator"
              module="Mage4_StoreLocator"
-             parent="Mage4_StoreLocator::storelocator"
+             parent="Mage4_StoreLocator::root"
              action="storelocator/index/index"
              sortOrder="1"
              resource="Mage4_StoreLocator::storelocator"/>
+        <add id="Mage4_StoreLocator::storelocator_configuration"
+             title="Configuration"
+             resource="Magento_Backend::cgr_root"
+             module="Mage4_StoreLocator"
+             sortOrder="3"
+             action="adminhtml/system_config/edit/section/storelocator"
+             parent="Mage4_StoreLocator::root" />
     </menu>
 </config>
-

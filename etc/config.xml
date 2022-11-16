@@ -3,7 +3,8 @@
     <default>
         <storelocator>
             <general>
-                <enabled>0</enabled>
+                <enable>0</enable>
+                <add_to_toolbar_menu>1</add_to_toolbar_menu>
             </general>
             <style>
                 <json>""</json>
