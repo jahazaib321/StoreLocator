@@ -2,6 +2,10 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <storelocator>
+            <general>
+                <enable>0</enable>
+                <add_to_toolbar_menu>1</add_to_toolbar_menu>
+            </general>
             <style>
                 <json>""</json>
                 <zoom>12</zoom>

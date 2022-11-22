@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="header.links">
+            <block class="Mage4\StoreLocator\Block\Link" ifconfig="storelocator/general/add_to_toolbar_menu" name="locator_header_link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Storelocator</argument>
+                    <argument name="path" xsi:type="string" translate="true">storelocator/index</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
